@@ -26,12 +26,12 @@ const app = express();
 // CORS
 // MUST BE BEFORE CLERK
 // ======================================
-
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
       "http://localhost:5174",
+      "https://auto-lux-frontend.vercel.app",
     ],
     credentials: true,
     methods: [
@@ -60,7 +60,15 @@ app.use(express.json());
 // MUST BE BEFORE PROTECTED ROUTES
 // ======================================
 
-app.use(clerkMiddleware());
+app.use(
+  clerkMiddleware({
+    authorizedParties: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://auto-lux-frontend.vercel.app",
+    ],
+  })
+);
 
 // ======================================
 // DATABASE
