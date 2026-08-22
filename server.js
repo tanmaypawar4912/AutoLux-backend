@@ -16,6 +16,7 @@ const bookingRoutes = require("./routes/bookingRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const enquiryRoutes = require("./routes/enquiryRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const optionsRoutes = require("./routes/optionsRoutes");
@@ -115,6 +116,11 @@ app.use(
 app.use(
   "/api/enquiries",
   enquiryRoutes
+);
+
+app.use(
+  "/api/contacts",
+  contactRoutes
 );
 
 app.use(
